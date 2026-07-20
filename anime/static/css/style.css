@@ -77,8 +77,8 @@ body {
 
 .card-1 {
     top: 1rem;
-    left: 2.5rem;
-    width: 16rem;
+    left: 0rem;
+    width: 15rem;
     height: 15rem;
     transform: rotate(-12deg);
     opacity: 0.6;
@@ -86,7 +86,7 @@ body {
 
 .card-2 {
     top: 4rem;
-    left: 14rem;
+    left: 11rem;
     width: 14rem;
     height: 18rem;
     transform: rotate(6deg);
@@ -112,9 +112,9 @@ body {
 }
 
 .card-5 {
-    bottom: 18rem;
-    right: 18rem;
-    width: 13rem;
+    bottom: 20rem;
+    right: 19rem;
+    width: 15rem;
     height: 20rem;
     transform: rotate(6deg);
     opacity: 0.7;
@@ -133,7 +133,7 @@ body {
 
 .card-7 {
     bottom: 42rem;
-    right: 2rem;
+    right: 8rem;
     width: 15rem;
     height: 16rem;
     transform: rotate(6deg);
@@ -151,7 +151,7 @@ body {
 
 .card-9 {
     bottom: 2rem;
-    right: 15rem;
+    right: 17rem;
     width: 13rem;
     height: 20rem;
     transform: rotate(6deg);
@@ -160,20 +160,20 @@ body {
 
 .card-10 {
     top: 1rem;
-    left: 28rem;
-    width: 12rem;
-    height: 16rem;
-    transform: rotate(-18deg);
-    opacity: 0.9;
+    left: 23rem;
+    width: 13rem;
+    height: 17rem;
+    transform: rotate(-12deg);
+    opacity: 0.6;
 }
 
 .card-11 {
-    top: 20rem;
+    top: 23rem;
     right: 30rem;
     width: 15rem;
-    height: 19rem;
+    height: 17rem;
     transform: rotate(14deg);
-    opacity: 0.3;
+    opacity: 0.25;
 }
 
 .card-12 {
@@ -182,14 +182,14 @@ body {
     width: 14rem;
     height: 18rem;
     transform: rotate(-9deg);
-    opacity: 0.9;
+    opacity: 0.6;
 }
 
 .card-13 {
-    top: 33rem;
-    right: 5rem;
-    width: 13rem;
-    height: 17rem;
+    top: 36rem;
+    right: 7rem;
+    width: 14rem;
+    height: 18rem;
     transform: rotate(6deg);
     opacity: 0.5;
 }
@@ -202,6 +202,16 @@ body {
     transform: rotate(-5deg);
     opacity: 0.6;
 }
+
+.card-15 {
+    bottom: 38rem;
+    right: 0rem;
+    width: 13rem;
+    height: 16rem;
+    transform: rotate(-12deg);
+    opacity: 0.5;
+}
+
 
 
 

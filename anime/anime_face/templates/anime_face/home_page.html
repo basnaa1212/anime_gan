@@ -1,0 +1,141 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Face Generator</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+<div class="page-container">
+
+    <div class="left-panel">
+
+        <div class="left-gradient"></div>
+
+        <div class="glow-top"></div>
+        <div class="glow-bottom"></div>
+
+        <div class="anime-card card-1">
+            <img src="{% static 'anime1.jpg' %}" alt="">
+        </div>
+
+        <div class="anime-card card-2">
+            <img src="{% static 'anime2.jpg' %}" alt="">
+        </div>
+
+        <div class="anime-card card-3">
+            <img src="{% static 'anime3.jpg' %}" alt="">
+        </div>
+
+        <div class="anime-card card-4">
+            <img src="{% static 'anime4.jpg' %}" alt="">
+        </div>
+
+        <div class="anime-card card-5">
+            <img src="{% static 'anime5.jpg' %}" alt="">
+        </div>
+
+        <div class="anime-card card-6">
+            <img src="{% static 'anime6.jpg' %}" alt="">
+        </div>
+
+        <div class="anime-card card-7">
+            <img src="{% static 'anime7.jpg' %}" alt="">
+        </div>
+
+        <div class="anime-card card-8">
+            <img src="{% static 'anime8.jpg' %}" alt="">
+        </div>
+
+        <div class="anime-card card-9">
+            <img src="{% static 'anime9.jpg' %}" alt="">
+        </div>
+
+        <div class="anime-card card-10">
+            <img src="{% static 'anime10.jpg' %}" alt="">
+        </div>
+
+        <div class="anime-card card-11">
+            <img src="{% static 'anime11.jpg' %}" alt="">
+        </div>
+
+        <div class="anime-card card-12">
+            <img src="{% static 'anime12.jpg' %}" alt="">
+        </div>
+
+        <div class="anime-card card-13">
+            <img src="{% static 'anime13.jpg' %}" alt="">
+        </div>
+
+        <div class="anime-card card-14">
+            <img src="{% static 'anime14.jpg' %}" alt="">
+        </div>
+
+    </div>
+
+    <div class="right-panel">
+
+        <div class="content-wrapper">
+
+            <div class="badge">
+                AI Powered GAN
+            </div>
+
+            <h1 class="hero-title">
+                Generate
+                <span class="gradient-text">
+                    Anime Faces
+                </span>
+            </h1>
+
+            <p class="hero-description">
+                Create unique anime characters instantly using
+                Generative Adversarial Networks trained on anime
+                face datasets.
+            </p>
+
+            <div class="button-group">
+                <button id="generateBtn" class="generate-btn">
+                    Generate Face
+                </button>
+            </div>
+
+            <div id="generatedBox" class="generated-box">
+                <img
+                    id="generatedImage"
+                    src=""
+                    class="generated-image"
+                    alt=""
+                >
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+document.getElementById("generateBtn").addEventListener("click", async () => {
+
+    const response = await fetch("/generate/");
+    const data = await response.json();
+
+    const box = document.getElementById("generatedBox");
+    const image = document.getElementById("generatedImage");
+
+    image.src = data.image_url + "?t=" + Date.now();
+
+    box.classList.remove("hidden");
+});
+</script>
+
+</body>
+</html>

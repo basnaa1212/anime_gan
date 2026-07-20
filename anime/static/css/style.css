@@ -1,0 +1,328 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Layout */
+
+.page-container {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    gap: 2.5rem;
+    background-color: rgb(2 6 23);
+    overflow: hidden;
+}
+
+.left-panel {
+    position: relative;
+    width: 50%;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    box-shadow:
+        0 25px 50px -12px rgb(0 0 0 / 0.25);
+}
+
+.left-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom right,
+        #ffffff,
+        #e2e8f0
+    );
+}
+
+.glow-top {
+    position: absolute;
+    top: 0;
+    left: 5rem;
+    width: 24rem;
+    height: 24rem;
+    background: white;
+    border-radius: 9999px;
+    filter: blur(64px);
+}
+
+.glow-bottom {
+    position: absolute;
+    bottom: 0;
+    right: 2.5rem;
+    width: 20rem;
+    height: 20rem;
+    background: white;
+    border-radius: 9999px;
+    filter: blur(64px);
+}
+
+/* Anime Cards */
+
+.anime-card {
+    position: absolute;
+    overflow: hidden;
+    border-radius: 1.5rem;
+    box-shadow:
+        0 25px 50px -12px rgb(0 0 0 / 0.25);
+}
+
+.anime-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1.5rem;
+}
+
+/* Card Positions */
+
+.card-1 {
+    top: 1rem;
+    left: 2.5rem;
+    width: 16rem;
+    height: 15rem;
+    transform: rotate(-12deg);
+    opacity: 0.6;
+}
+
+.card-2 {
+    top: 4rem;
+    left: 14rem;
+    width: 14rem;
+    height: 18rem;
+    transform: rotate(6deg);
+    opacity: 0.5;
+}
+
+.card-3 {
+    bottom: 2rem;
+    left: 1rem;
+    width: 18rem;
+    height: 20rem;
+    transform: rotate(6deg);
+    opacity: 0.5;
+}
+
+.card-4 {
+    bottom: 2rem;
+    right: 1rem;
+    width: 13rem;
+    height: 18rem;
+    transform: rotate(-6deg);
+    opacity: 0.5;
+}
+
+.card-5 {
+    bottom: 18rem;
+    right: 18rem;
+    width: 13rem;
+    height: 20rem;
+    transform: rotate(6deg);
+    opacity: 0.7;
+}
+
+
+.card-6 {
+    bottom: 25rem;
+    right: 10rem;
+    width: 13rem;
+    height: 18rem;
+    transform: rotate(-12deg);
+    opacity: 0.6;
+}
+
+
+.card-7 {
+    bottom: 42rem;
+    right: 2rem;
+    width: 15rem;
+    height: 16rem;
+    transform: rotate(6deg);
+    opacity: 0.6;
+}
+
+.card-8 {
+    bottom: 23rem;
+    left: 1rem;
+    width: 15rem;
+    height: 18rem;
+    transform: rotate(6deg);
+    opacity: 0.6;
+}
+
+.card-9 {
+    bottom: 2rem;
+    right: 15rem;
+    width: 13rem;
+    height: 20rem;
+    transform: rotate(6deg);
+    opacity: 0.7;
+}
+
+.card-10 {
+    top: 1rem;
+    left: 28rem;
+    width: 12rem;
+    height: 16rem;
+    transform: rotate(-18deg);
+    opacity: 0.9;
+}
+
+.card-11 {
+    top: 20rem;
+    right: 30rem;
+    width: 15rem;
+    height: 19rem;
+    transform: rotate(14deg);
+    opacity: 0.3;
+}
+
+.card-12 {
+    bottom: 1rem;
+    left: 16rem;
+    width: 14rem;
+    height: 18rem;
+    transform: rotate(-9deg);
+    opacity: 0.9;
+}
+
+.card-13 {
+    top: 33rem;
+    right: 5rem;
+    width: 13rem;
+    height: 17rem;
+    transform: rotate(6deg);
+    opacity: 0.5;
+}
+
+.card-14 {
+    top: 20rem;
+    left: 46rem;
+    width: 13rem;
+    height: 17rem;
+    transform: rotate(-5deg);
+    opacity: 0.6;
+}
+
+
+
+
+/* Right Section */
+
+.right-panel {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 5rem;
+    padding-right: 5rem;
+}
+
+.content-wrapper {
+    max-width: 36rem;
+}
+
+/* Badge */
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+
+    border-radius: 9999px;
+
+    background: rgba(139, 92, 246, 0.1);
+
+    border: 1px solid rgba(139, 92, 246, 0.2);
+
+    color: rgb(167 139 250);
+
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+/* Hero Text */
+
+.hero-title {
+    margin-top: 2rem;
+    font-size: 4.5rem;
+    font-weight: 900;
+    line-height: 1;
+    color: white;
+}
+
+.gradient-text {
+    background: linear-gradient(
+        to right,
+        #a78bfa,
+        #d946ef
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    background-clip: text;
+}
+
+.hero-description {
+    margin-top: 1.5rem;
+    font-size: 1.125rem;
+    line-height: 1.75;
+    color: rgb(148 163 184);
+}
+
+/* Button */
+
+.button-group {
+    margin-top: 2.5rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.generate-btn {
+    padding: 1rem 2rem;
+
+    border: none;
+
+    border-radius: 1rem;
+
+    background: #7c3aed;
+
+    color: white;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+
+    box-shadow:
+        0 10px 30px rgba(124, 58, 237, 0.35);
+}
+
+.generate-btn:hover {
+    background: #8b5cf6;
+    transform: translateY(-2px);
+}
+
+/* Generated Image */
+
+.generated-box {
+    display: none;
+
+    margin-top: 2.5rem;
+
+    padding: 0.75rem;
+
+    border-radius: 1.5rem;
+
+    background: rgba(255,255,255,0.05);
+
+    border: 1px solid rgba(255,255,255,0.1);
+
+    backdrop-filter: blur(20px);
+}
+
+.generated-image {
+    width: 20rem;
+    border-radius: 1rem;
+}

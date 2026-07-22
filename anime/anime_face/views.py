@@ -12,6 +12,7 @@ import os
 from django.conf import settings
 import random
 static_dir = settings.STATICFILES_DIRS[0]
+from django.contrib.auth.decorators import login_required
 class Generator(nn.Module):
   def __init__(self,noice_dimension=128):
     super().__init__()
@@ -103,7 +104,7 @@ generator.load_state_dict(checkpoint["generator"])
 generator.eval()
 
 
-
+@login_required
 def generate_face_with_gan():
 
     with torch.no_grad():
@@ -124,6 +125,7 @@ def generate_face_with_gan():
 
 
 
+
 # Create your views here.
 def home(request):
 
@@ -131,26 +133,11 @@ def home(request):
 
 
 
-def login_view(request):
-    if request.method == "POST":
-        email = request.POST.get("email")
-        password = request.POST.get("password")
-
-        user = authenticate(request, username=email, password=password)
-
-        if user:
-            login(request, user)
-            return redirect("dashboard")
-        else:
-            messages.error(request, "Invalid email or password.")
-
-    return render(request, "anime_face/login.html")
-
-
+@login_required
 def home1(request):
     return render(request, 'anime_face/home_page.html')
 
-
+@login_required
 def generate_anime(request):
 
     # Call GAN model here

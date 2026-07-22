@@ -136,6 +136,21 @@
 
 
             </div>
+        <div class="mt-10 text-center">
+
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+
+                <button
+                    type="submit"
+                    class="text-gray-400 hover:text-white transition duration-300"
+                >
+                    Logout
+                </button>
+
+            </form>
+
+        </div>          
 
         </div>
 

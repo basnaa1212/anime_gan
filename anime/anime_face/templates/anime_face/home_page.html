@@ -111,10 +111,11 @@
                         Generate Face
                     </button>
                 </div>
-                <div id="generatedBox" class="generated-box  relative">
+
+                <div id="generatedBox" class="generated-box hidden relative">
 
                     <div id="loadingOverlay"
-                        class="absolute inset-0 flex flex-col items-center justify-center bg-slate-900/90 z-20">
+                        class="hidden absolute inset-0 flex-col items-center justify-center bg-slate-900/90 z-20 rounded-3xl">
 
                         <div class="loader"></div>
 
@@ -122,24 +123,21 @@
                             Creating Anime Face...
                         </p>
 
-                        <div class="w-72 h-2 bg-slate-700 rounded-full  mt-4">
-
+                        <div class="w-72 h-2 bg-slate-700 rounded-full overflow-hidden mt-4">
                             <div id="progressFill" class="h-full bg-white rounded-full" style="width:0%">
                             </div>
-
                         </div>
 
                     </div>
 
-                    <div id="generatedBox" class="generated-box hidden relative">
+                    <img id="generatedImage" src="" class="generated-image" alt="Generated Anime Face">
 
                 </div>
+
 
             </div>
 
         </div>
-
-    </div>
 
 
 
@@ -169,24 +167,22 @@
 
         box.classList.remove("hidden");
 
-        // Show loader
+        overlay.classList.remove("hidden");
         overlay.style.display = "flex";
 
-        // Hide previous image while generating
         img.style.opacity = "0";
 
-        // Reset progress
         progress.style.width = "0%";
 
         btn.disabled = true;
-        btn.innerText = "Generating...";
+        btn.textContent = "Generating...";
 
         let width = 0;
 
         const progressTimer = setInterval(() => {
 
             if (width < 95) {
-                width += Math.random() * 5;
+                width += Math.random() * 4;
                 progress.style.width = width + "%";
             }
 
@@ -195,65 +191,31 @@
         try {
 
             const response = await fetch("/generate/");
-
             const data = await response.json();
 
             console.log("Generated:", data);
 
-            // Single URL used everywhere
             const imageUrl =
                 data.image_url + "?t=" + Date.now();
 
-            // Preload image
-            await new Promise((resolve, reject) => {
+            const preload = new Image();
 
-                const preload = new Image();
+            preload.src = imageUrl;
 
-                preload.onload = resolve;
-                preload.onerror = reject;
-
-                preload.src = imageUrl;
-
-            });
+            await preload.decode();
 
             clearInterval(progressTimer);
 
             progress.style.width = "100%";
 
-            // Give a small delay for smooth UX
-            setTimeout(() => {
+            img.src = imageUrl;
 
-                img.onload = () => {
+            requestAnimationFrame(() => {
+                img.style.opacity = "1";
+            });
 
-                    overlay.style.display = "none";
-
-                    img.style.opacity = "1";
-
-                    btn.disabled = false;
-                    btn.innerText = "Generate Face";
-
-                    generating = false;
-                };
-
-                img.onerror = () => {
-
-                    console.error("Failed to display image");
-
-                    overlay.innerHTML = `
-                    <p class="text-red-400">
-                        Failed to display image
-                    </p>
-                `;
-
-                    btn.disabled = false;
-                    btn.innerText = "Generate Face";
-
-                    generating = false;
-                };
-
-                img.src = imageUrl;
-
-            }, 300);
+            overlay.style.display = "none";
+            overlay.classList.add("hidden");
 
         }
         catch (err) {
@@ -263,13 +225,15 @@
             clearInterval(progressTimer);
 
             overlay.innerHTML = `
-            <p class="text-red-400 text-lg">
+            <p class="text-red-400 text-center px-4">
                 Failed to generate image
             </p>
         `;
+        }
+        finally {
 
             btn.disabled = false;
-            btn.innerText = "Generate Face";
+            btn.textContent = "Generate Face";
 
             generating = false;
         }

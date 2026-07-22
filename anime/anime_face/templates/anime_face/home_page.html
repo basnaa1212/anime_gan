@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,133 +14,265 @@
 
 <body>
 
-<div class="page-container">
+    <div class="page-container">
 
-    <div class="left-panel">
+        <div class="left-panel">
 
-        <div class="left-gradient"></div>
+            <div class="left-gradient"></div>
 
-        <div class="glow-top"></div>
-        <div class="glow-bottom"></div>
+            <div class="glow-top"></div>
+            <div class="glow-bottom"></div>
 
-        <div class="anime-card card-1">
-            <img src="{% static 'anime1.jpg' %}" alt="">
+            <div class="anime-card card-1">
+                <img src="{% static 'anime1.jpg' %}" alt="">
+            </div>
+
+            <div class="anime-card card-2">
+                <img src="{% static 'anime2.jpg' %}" alt="">
+            </div>
+
+            <div class="anime-card card-3">
+                <img src="{% static 'anime3.jpg' %}" alt="">
+            </div>
+
+            <div class="anime-card card-4">
+                <img src="{% static 'anime4.jpg' %}" alt="">
+            </div>
+
+            <div class="anime-card card-5">
+                <img src="{% static 'anime5.jpg' %}" alt="">
+            </div>
+
+            <div class="anime-card card-6">
+                <img src="{% static 'anime6.jpg' %}" alt="">
+            </div>
+
+            <div class="anime-card card-7">
+                <img src="{% static 'anime7.jpg' %}" alt="">
+            </div>
+
+            <div class="anime-card card-8">
+                <img src="{% static 'anime8.jpg' %}" alt="">
+            </div>
+
+            <div class="anime-card card-9">
+                <img src="{% static 'anime9.jpg' %}" alt="">
+            </div>
+
+            <div class="anime-card card-10">
+                <img src="{% static 'anime10.jpg' %}" alt="">
+            </div>
+
+            <div class="anime-card card-11">
+                <img src="{% static 'anime11.jpg' %}" alt="">
+            </div>
+
+            <div class="anime-card card-12">
+                <img src="{% static 'anime12.jpg' %}" alt="">
+            </div>
+
+            <div class="anime-card card-13">
+                <img src="{% static 'anime13.jpg' %}" alt="">
+            </div>
+
+            <div class="anime-card card-14">
+                <img src="{% static 'anime14.jpg' %}" alt="">
+            </div>
+
+            <div class="anime-card card-15">
+                <img src="{% static 'anime15.jpg' %}" alt="">
+            </div>
+
         </div>
 
-        <div class="anime-card card-2">
-            <img src="{% static 'anime2.jpg' %}" alt="">
-        </div>
+        <div class="right-panel">
 
-        <div class="anime-card card-3">
-            <img src="{% static 'anime3.jpg' %}" alt="">
-        </div>
+            <div class="content-wrapper">
 
-        <div class="anime-card card-4">
-            <img src="{% static 'anime4.jpg' %}" alt="">
-        </div>
+                <div class="badge">
+                    AI Powered GAN
+                </div>
 
-        <div class="anime-card card-5">
-            <img src="{% static 'anime5.jpg' %}" alt="">
-        </div>
+                <h1 class="hero-title">
+                    Generate
+                    <span class="gradient-text">
+                        Anime Faces
+                    </span>
+                </h1>
 
-        <div class="anime-card card-6">
-            <img src="{% static 'anime6.jpg' %}" alt="">
-        </div>
+                <p class="hero-description">
+                    Create unique anime characters instantly using
+                    Generative Adversarial Networks trained on anime
+                    face datasets.
+                </p>
 
-        <div class="anime-card card-7">
-            <img src="{% static 'anime7.jpg' %}" alt="">
-        </div>
+                <div class="button-group">
+                    <button id="generateBtn" class="generate-btn">
+                        Generate Face
+                    </button>
+                </div>
+                <div id="generatedBox" class="generated-box  relative">
 
-        <div class="anime-card card-8">
-            <img src="{% static 'anime8.jpg' %}" alt="">
-        </div>
+                    <div id="loadingOverlay"
+                        class="absolute inset-0 flex flex-col items-center justify-center bg-slate-900/90 z-20">
 
-        <div class="anime-card card-9">
-            <img src="{% static 'anime9.jpg' %}" alt="">
-        </div>
+                        <div class="loader"></div>
 
-        <div class="anime-card card-10">
-            <img src="{% static 'anime10.jpg' %}" alt="">
-        </div>
+                        <p class="mt-4 text-white text-lg">
+                            Creating Anime Face...
+                        </p>
 
-        <div class="anime-card card-11">
-            <img src="{% static 'anime11.jpg' %}" alt="">
-        </div>
+                        <div class="w-72 h-2 bg-slate-700 rounded-full  mt-4">
 
-        <div class="anime-card card-12">
-            <img src="{% static 'anime12.jpg' %}" alt="">
-        </div>
+                            <div id="progressFill" class="h-full bg-white rounded-full" style="width:0%">
+                            </div>
 
-        <div class="anime-card card-13">
-            <img src="{% static 'anime13.jpg' %}" alt="">
-        </div>
+                        </div>
 
-        <div class="anime-card card-14">
-            <img src="{% static 'anime14.jpg' %}" alt="">
-        </div>
+                    </div>
 
-        <div class="anime-card card-15">
-            <img src="{% static 'anime15.jpg' %}" alt="">
+                    <div id="generatedBox" class="generated-box hidden relative">
+
+                </div>
+
+            </div>
+
         </div>
 
     </div>
 
-    <div class="right-panel">
 
-        <div class="content-wrapper">
 
-            <div class="badge">
-                AI Powered GAN
-            </div>
 
-            <h1 class="hero-title">
-                Generate
-                <span class="gradient-text">
-                    Anime Faces
-                </span>
-            </h1>
 
-            <p class="hero-description">
-                Create unique anime characters instantly using
-                Generative Adversarial Networks trained on anime
-                face datasets.
-            </p>
 
-            <div class="button-group">
-                <button id="generateBtn" class="generate-btn">
-                    Generate Face
-                </button>
-            </div>
-
-            <div id="generatedBox" class="generated-box">
-                <img
-                    id="generatedImage"
-                    src=""
-                    class="generated-image"
-                    alt=""
-                >
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-<script>
-document.getElementById("generateBtn").addEventListener("click", async () => {
-
-    const response = await fetch("/generate/");
-    const data = await response.json();
-
-    const box = document.getElementById("generatedBox");
-    const image = document.getElementById("generatedImage");
-
-    image.src = data.image_url + "?t=" + Date.now();
-
-    box.classList.remove("hidden");
-});
-</script>
 
 </body>
+
 </html>
+
+<script>
+    const btn = document.getElementById("generateBtn");
+
+    let generating = false;
+
+    btn.addEventListener("click", async () => {
+
+        if (generating) return;
+
+        generating = true;
+
+        const box = document.getElementById("generatedBox");
+        const img = document.getElementById("generatedImage");
+        const overlay = document.getElementById("loadingOverlay");
+        const progress = document.getElementById("progressFill");
+
+        box.classList.remove("hidden");
+
+        // Show loader
+        overlay.style.display = "flex";
+
+        // Hide previous image while generating
+        img.style.opacity = "0";
+
+        // Reset progress
+        progress.style.width = "0%";
+
+        btn.disabled = true;
+        btn.innerText = "Generating...";
+
+        let width = 0;
+
+        const progressTimer = setInterval(() => {
+
+            if (width < 95) {
+                width += Math.random() * 5;
+                progress.style.width = width + "%";
+            }
+
+        }, 250);
+
+        try {
+
+            const response = await fetch("/generate/");
+
+            const data = await response.json();
+
+            console.log("Generated:", data);
+
+            // Single URL used everywhere
+            const imageUrl =
+                data.image_url + "?t=" + Date.now();
+
+            // Preload image
+            await new Promise((resolve, reject) => {
+
+                const preload = new Image();
+
+                preload.onload = resolve;
+                preload.onerror = reject;
+
+                preload.src = imageUrl;
+
+            });
+
+            clearInterval(progressTimer);
+
+            progress.style.width = "100%";
+
+            // Give a small delay for smooth UX
+            setTimeout(() => {
+
+                img.onload = () => {
+
+                    overlay.style.display = "none";
+
+                    img.style.opacity = "1";
+
+                    btn.disabled = false;
+                    btn.innerText = "Generate Face";
+
+                    generating = false;
+                };
+
+                img.onerror = () => {
+
+                    console.error("Failed to display image");
+
+                    overlay.innerHTML = `
+                    <p class="text-red-400">
+                        Failed to display image
+                    </p>
+                `;
+
+                    btn.disabled = false;
+                    btn.innerText = "Generate Face";
+
+                    generating = false;
+                };
+
+                img.src = imageUrl;
+
+            }, 300);
+
+        }
+        catch (err) {
+
+            console.error(err);
+
+            clearInterval(progressTimer);
+
+            overlay.innerHTML = `
+            <p class="text-red-400 text-lg">
+                Failed to generate image
+            </p>
+        `;
+
+            btn.disabled = false;
+            btn.innerText = "Generate Face";
+
+            generating = false;
+        }
+
+    });
+</script>

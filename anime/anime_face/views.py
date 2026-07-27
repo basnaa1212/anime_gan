@@ -105,7 +105,7 @@ generator.eval()
 
 
 @login_required
-def generate_face_with_gan():
+def generate_face_with_gan(request):
 
     with torch.no_grad():
         z = torch.randn(1, 128, 1, 1, device=device)
@@ -141,7 +141,7 @@ def home1(request):
 def generate_anime(request):
 
     # Call GAN model here
-    image_path = generate_face_with_gan()
+    image_path = generate_face_with_gan(request)
 
     return JsonResponse({
         "image_url": image_path
